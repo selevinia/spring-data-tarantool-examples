@@ -1,0 +1,13 @@
+spring:
+  data:
+    tarantool:
+      nodes: localhost:3301
+      user-name: admin
+      password: admin
+      cluster: false
+      crud: false
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
