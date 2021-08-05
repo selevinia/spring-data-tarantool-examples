@@ -6,6 +6,7 @@ subprojects {
     apply(plugin = "java-library")
 
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 

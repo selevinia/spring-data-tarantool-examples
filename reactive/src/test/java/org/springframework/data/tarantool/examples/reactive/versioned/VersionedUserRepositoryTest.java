@@ -13,7 +13,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-class VersionedUserRepositoryTest {
+public class VersionedUserRepositoryTest {
 
     @Autowired
     private VersionedUserRepository userRepository;
