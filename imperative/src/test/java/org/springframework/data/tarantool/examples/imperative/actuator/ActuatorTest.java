@@ -6,12 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.reactive.ClientHttpConnector;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.netty.http.client.HttpClient;
-import reactor.test.StepVerifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
@@ -22,12 +19,8 @@ public class ActuatorTest {
     @Configuration
     protected static class TestConfig {
         @Bean
-        public WebClient webClient() {
-            HttpClient httpClient = HttpClient.create();
-            ClientHttpConnector connector = new ReactorClientHttpConnector(httpClient);
-            return WebClient.builder()
-                    .clientConnector(connector)
-                    .build();
+        public RestTemplate restTemplate() {
+            return new RestTemplate();
         }
     }
 
@@ -35,20 +28,13 @@ public class ActuatorTest {
     private int serverPort;
 
     @Autowired
-    private WebClient webClient;
+    private RestTemplate restTemplate;
 
     @Test
     void shouldCheckHealthIsUp() {
-        webClient.get()
-                .uri(String.format("localhost:%s/actuator/health", serverPort))
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .bodyToMono(String.class)
-                .as(StepVerifier::create)
-                .assertNext(health -> {
-                    assertThat(health).contains("\"status\":\"UP\"");
-                    assertThat(health).contains("Tarantool 2.9.0");
-                })
-                .verifyComplete();
+        ResponseEntity<String> response = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/health", serverPort), String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).contains("\"status\":\"UP\"");
+        assertThat(response.getBody()).contains("Tarantool 2.9.0");
     }
 }

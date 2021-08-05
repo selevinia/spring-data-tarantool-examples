@@ -13,10 +13,6 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.20")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.2")
-    testImplementation("org.springframework.boot:spring-boot-starter-reactor-netty:2.5.2")
-    testImplementation("org.springframework:spring-webflux:5.3.8")
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
     testImplementation("org.assertj:assertj-core:3.20.2")
-    testImplementation("io.projectreactor:reactor-test:3.4.7")
-    testImplementation("io.netty:netty-all:4.1.66.Final")
 }
