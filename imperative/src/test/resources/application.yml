@@ -7,7 +7,7 @@ spring:
       cluster: false
       crud: false
       repositories:
-        type: REACTIVE
+        type: IMPERATIVE
 
 management:
   endpoint:
