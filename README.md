@@ -1,7 +1,8 @@
 # Spring Data Examples for Tarantool
 
 This repository contains example projects for the Spring Data Tarantool module 
-to showcase the API and how to use the features provided by the modules.
+to showcase the API and how to use the features provided by the modules. 
+To run tests using Docker, file docker-compose.yml may be used.
 
 ## Imperative examples
 
