@@ -21,3 +21,8 @@ To run tests using Docker, file docker-compose.yml may be used.
 * `entitycallback` - Example project to show work with entity callbacks.
 * `simple` - Example project to show reactive repository support.
 * `versioned` - Example project to show support of version property.
+
+## Caching examples
+
+* `customized` - Example project to show cache support with customizer.
+* `simple` - Example project to show cache support.

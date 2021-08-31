@@ -1,0 +1,16 @@
+spring:
+  data:
+    tarantool:
+      nodes: localhost:3301
+      user-name: admin
+      password: admin
+      cluster: false
+      crud: false
+      repositories:
+        type: IMPERATIVE
+
+selevinia:
+  cache:
+    tarantool:
+      enabled: true
+      cache-name-prefix: cached
