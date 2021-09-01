@@ -3,7 +3,7 @@ group = "io.github.selevinia.examples"
 dependencies {
     // todo - 0.2.0 -> 0.3.0
     implementation("io.github.selevinia:selevinia-spring-boot-starter-actuator-tarantool:0.2.0")
-    implementation("io.github.selevinia:selevinia-spring-boot-starter-data-tarantool-reactive:0.2.0")
+    implementation("io.github.selevinia:selevinia-spring-boot-starter-data-tarantool-reactive:0.3.0")
 
     implementation("org.springframework.boot:spring-boot-starter-webflux:2.5.2")
 
