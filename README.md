@@ -24,5 +24,6 @@ To run tests using Docker, file docker-compose.yml may be used.
 
 ## Caching examples
 
+* `actuator` - Example project to show support of actuator cache metrics.
 * `customized` - Example project to show cache support with customizer.
 * `simple` - Example project to show cache support.

@@ -14,3 +14,13 @@ selevinia:
     tarantool:
       enabled: true
       cache-name-prefix: cached
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, caches
+  endpoint:
+    health:
+      show-details: ALWAYS
+
