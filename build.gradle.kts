@@ -1,5 +1,5 @@
 group = "io.github.selevinia.examples"
-version = "0.3.0"
+version = "0.3.1"
 description = "Sample projects for Spring Data Tarantool"
 
 subprojects {
