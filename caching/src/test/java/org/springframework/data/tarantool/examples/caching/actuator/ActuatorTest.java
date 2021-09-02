@@ -64,7 +64,7 @@ public class ActuatorTest {
         ResponseEntity<String> response = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/caches", serverPort), String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).contains("\"cacheManager\"");
-        assertThat(response.getBody()).contains("\"dictionary\"");
+        assertThat(response.getBody()).contains("\"cached_dictionary\"");
         assertThat(response.getBody()).contains("\"org.springframework.data.tarantool.cache.DefaultTarantoolCacheWriter\"");
     }
 
@@ -76,15 +76,15 @@ public class ActuatorTest {
         dictionaryService.getValue("1");
         dictionaryService.removeValue("1");
 
-        ResponseEntity<String> responseForGets = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/metrics/cache.gets?tag=name:dictionary", serverPort), String.class);
+        ResponseEntity<String> responseForGets = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/metrics/cache.gets?tag=name:cached_dictionary", serverPort), String.class);
         assertThat(responseForGets.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseForGets.getBody()).contains("\"COUNT\",\"value\":3.0");
 
-        ResponseEntity<String> responseForPuts = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/metrics/cache.puts?tag=name:dictionary", serverPort), String.class);
+        ResponseEntity<String> responseForPuts = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/metrics/cache.puts?tag=name:cached_dictionary", serverPort), String.class);
         assertThat(responseForPuts.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseForPuts.getBody()).contains("\"COUNT\",\"value\":1.0");
 
-        ResponseEntity<String> responseForRemovals = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/metrics/cache.removals?tag=name:dictionary", serverPort), String.class);
+        ResponseEntity<String> responseForRemovals = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/metrics/cache.removals?tag=name:cached_dictionary", serverPort), String.class);
         assertThat(responseForRemovals.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseForRemovals.getBody()).contains("\"COUNT\",\"value\":1.0");
     }
