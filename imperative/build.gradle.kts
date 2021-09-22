@@ -1,8 +1,8 @@
 group = "io.github.selevinia.examples"
 
 dependencies {
-    implementation("io.github.selevinia:selevinia-spring-boot-starter-actuator-tarantool:0.3.1")
-    implementation("io.github.selevinia:selevinia-spring-boot-starter-data-tarantool:0.3.1")
+    implementation("io.github.selevinia:selevinia-spring-boot-starter-actuator-tarantool:0.3.2")
+    implementation("io.github.selevinia:selevinia-spring-boot-starter-data-tarantool:0.3.2")
 
     implementation("org.springframework.boot:spring-boot-starter-web:2.5.2")
 
