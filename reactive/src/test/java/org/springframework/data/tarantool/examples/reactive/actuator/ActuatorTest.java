@@ -51,7 +51,7 @@ public class ActuatorTest {
                 .as(StepVerifier::create)
                 .assertNext(health -> {
                     assertThat(health).contains("\"status\":\"UP\"");
-                    assertThat(health).contains("Tarantool 2.9.0");
+                    assertThat(health).contains("Tarantool 2.11.2");
                 })
                 .verifyComplete();
     }

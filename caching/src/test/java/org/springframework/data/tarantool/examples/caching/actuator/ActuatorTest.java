@@ -53,7 +53,7 @@ public class ActuatorTest {
         ResponseEntity<String> response = restTemplate.getForEntity(String.format("http://localhost:%s/actuator/health", serverPort), String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).contains("\"status\":\"UP\"");
-        assertThat(response.getBody()).contains("Tarantool 2.9.0");
+        assertThat(response.getBody()).contains("Tarantool 2.11.2");
     }
 
     @Test
