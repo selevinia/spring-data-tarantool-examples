@@ -1,5 +1,5 @@
 group = "io.github.selevinia.examples"
-version = "0.4.0"
+version = "0.5.0"
 description = "Sample projects for Spring Data Tarantool"
 
 subprojects {
@@ -10,9 +10,13 @@ subprojects {
         mavenCentral()
     }
 
-    configure<JavaPluginConvention> {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+    configure<JavaPluginExtension> {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    tasks.withType<JavaCompile> {
+        options.compilerArgs.add("-parameters")
     }
 
     tasks.withType<Test> {
